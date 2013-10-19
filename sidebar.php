@@ -10,6 +10,7 @@
  */
 ?>
 
+<?php if ( is_active_sidebar('sidebar') ) { ?>
 <?php wpex_hook_sidebar_before(); ?>
 <aside id="sidebar">
 	<?php wpex_hook_sidebar_top(); ?>
@@ -17,3 +18,4 @@
     <?php wpex_hook_sidebar_bottom(); ?>
 </aside><!-- /sidebar -->
 <?php wpex_hook_sidebar_after(); ?>
+<?php } ?>

@@ -32,8 +32,11 @@ function wpex_load_scripts() {
 	
 	// PrettyPhoto Lightbox
 	wp_enqueue_style('prettyphoto', WPEX_CSS_DIR . '/prettyphoto.css', 'style', true);
-	
-	
+
+	// Hide empty sidebar
+	if (! is_active_sidebar('sidebar') ) {
+		wp_enqueue_style( 'hidden-sidebar', WPEX_CSS_DIR. '/hidden-sidebar.css', 'style', true);
+	}
 
 	/*******
 	*** jQuery
