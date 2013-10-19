@@ -1,5 +1,5 @@
 /*global jQuery */
-/*! 
+/*!
 * FitVids 1.0
 *
 * Copyright 2011, Chris Coyier - http://css-tricks.com + Dave Rupert - http://daverupert.com
@@ -26,10 +26,10 @@
     var settings = {
       customSelector: null
     }
-    
+
     var div = document.createElement('div'),
         ref = document.getElementsByTagName('base')[0] || document.getElementsByTagName('script')[0];
-        
+
    div.className = 'fit-vids-style';
     div.innerHTML = '&shy;<style> \
 .fluid-width-video-wrapper { \
@@ -48,13 +48,13 @@ width: 100%; \
 height: 100%; \
 } \
 </style>';
-                      
+
     ref.parentNode.insertBefore(div,ref);
-    
+
     if ( options ) {
       $.extend( settings, options );
     }
-    
+
     return this.each(function(){
       var selectors = [
         "iframe[src*='player.vimeo.com']",
@@ -63,11 +63,11 @@ height: 100%; \
         "object",
         "embed"
       ];
-      
+
       if (settings.customSelector) {
         selectors.push(settings.customSelector);
       }
-      
+
       var $allVideos = $(this).find(selectors.join(','));
 
       $allVideos.each(function(){
@@ -83,6 +83,6 @@ $this.attr('id', videoID);
         $this.removeAttr('height').removeAttr('width');
       });
     });
-  
+
   }
 })( jQuery );

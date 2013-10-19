@@ -13,13 +13,13 @@
 get_header(); // Loads the header.php template
 
 if (have_posts()) : ?>
-<div id="blog-wrap" class="blog-isotope clearfix">   
-	<?php
-	// Loop through each post
+<div id="blog-wrap" class="blog-isotope clearfix">
+    <?php
+    // Loop through each post
     while (have_posts()) : the_post();
-        get_template_part( 'content', get_post_format() );   
-    endwhile;        	
-    ?>           
+        get_template_part( 'content', get_post_format() );
+    endwhile;
+    ?>
 </div><!-- /post -->
 <?php
 wpex_pagination(); // Paginate your posts

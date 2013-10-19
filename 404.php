@@ -11,10 +11,10 @@
 
 get_header(); // Loads the header.php template ?>
 
-<div id="error-page" class="container">	
-	<h1 id="error-page-title">404</h1>			
-	<p id="error-page-text">
-	<?php _e('Unfortunately, the page you tried accessing could not be retrieved. Please visit the','wpex'); ?> <a href="<?php echo home_url() ?>/" title="<?php bloginfo( 'name' ) ?>" rel="home"><?php _e('homepage','wpex'); ?></a>.
+<div id="error-page" class="container">
+    <h1 id="error-page-title">404</h1>
+    <p id="error-page-text">
+    <?php _e('Unfortunately, the page you tried accessing could not be retrieved. Please visit the','wpex'); ?> <a href="<?php echo home_url() ?>/" title="<?php bloginfo( 'name' ) ?>" rel="home"><?php _e('homepage','wpex'); ?></a>.
     </p>
 </div><!-- /error-page -->
 

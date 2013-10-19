@@ -10,8 +10,8 @@
  * @link http://wpexplorer.com
  * @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
- 
- 
+
+
 /**
 * Define Constants
 */
@@ -26,19 +26,19 @@ define( 'WPEX_CSS_DIR', get_template_directory_uri().'/css' );
  * @since Authentic Corp 1.0
  */
 if ( !function_exists( 'of_get_option' ) ) {
-	function of_get_option($name, $default = false) {
-		$optionsframework_settings = get_option('optionsframework');
-		// Gets the unique option id
-		$option_name = $optionsframework_settings['id'];
-		if ( get_option($option_name) ) {
-			$options = get_option($option_name);
-		}
-		if ( isset($options[$name]) ) {
-			return $options[$name];
-		} else {
-			return $default;
-		}
-	}
+    function of_get_option($name, $default = false) {
+        $optionsframework_settings = get_option('optionsframework');
+        // Gets the unique option id
+        $option_name = $optionsframework_settings['id'];
+        if ( get_option($option_name) ) {
+            $options = get_option($option_name);
+        }
+        if ( isset($options[$name]) ) {
+            return $options[$name];
+        } else {
+            return $default;
+        }
+    }
 }
 
 /**
@@ -68,7 +68,7 @@ require_once( get_template_directory() .'/functions/wpex_comments_output.php' );
 
 //load these functions only in the admin dashboard
 if( defined('WP_ADMIN') && WP_ADMIN ) {
-	require_once( get_template_directory() .'/functions/post_meta.php' );	
+    require_once( get_template_directory() .'/functions/post_meta.php' );
 }
 
 /**
@@ -83,25 +83,25 @@ load_theme_textdomain( 'wpex', get_template_directory() .'/lang' );
 
 function wpex_setup() {
 
-	//default width of primary content area
-	$content_width = 970;
-	
-	//theme support
-	add_theme_support('automatic-feed-links');
-	add_theme_support('custom-background');
-	add_theme_support('post-thumbnails');
-	
-	//register navigation menus
-	if ( ! function_exists ( 'wpex_register_nav_menus' ) ) {
-		function wpex_register_nav_menus ( ) {
-			$wpex_menus = array(
-				'main_menu' => __( 'Main', 'wpex' )
-			);
-			$wpex_menus = apply_filters ( 'wpex_nav_menus', $wpex_menus );
-			register_nav_menus ( $wpex_menus );
-		}
-	}
-	wpex_register_nav_menus();
+    //default width of primary content area
+    $content_width = 970;
+
+    //theme support
+    add_theme_support('automatic-feed-links');
+    add_theme_support('custom-background');
+    add_theme_support('post-thumbnails');
+
+    //register navigation menus
+    if ( ! function_exists ( 'wpex_register_nav_menus' ) ) {
+        function wpex_register_nav_menus ( ) {
+            $wpex_menus = array(
+                'main_menu' => __( 'Main', 'wpex' )
+            );
+            $wpex_menus = apply_filters ( 'wpex_nav_menus', $wpex_menus );
+            register_nav_menus ( $wpex_menus );
+        }
+    }
+    wpex_register_nav_menus();
 
 }
 add_action( 'after_setup_theme', 'wpex_setup' );
@@ -113,7 +113,7 @@ add_action( 'after_setup_theme', 'wpex_setup' );
 */
 add_filter( 'tgmsp_affiliate_url', 'test_affiliate_url' );
 function test_affiliate_url() {
-	return 'http://www.wpexplorer.com/soliloquy-wordpress-plugin';
+    return 'http://www.wpexplorer.com/soliloquy-wordpress-plugin';
 }
 
 /**
@@ -121,11 +121,11 @@ function test_affiliate_url() {
 * @since 1.0
 */
 if ( !function_exists( 'wpex_new_excerpt_more' ) ) :
-	function wpex_new_excerpt_more($more) {
-		global $post;
-		return '...';
-	}
-	add_filter('excerpt_more', 'wpex_new_excerpt_more');
+    function wpex_new_excerpt_more($more) {
+        global $post;
+        return '...';
+    }
+    add_filter('excerpt_more', 'wpex_new_excerpt_more');
 endif;
 
 
@@ -135,8 +135,8 @@ endif;
 */
 add_filter( 'wp_page_menu_args', 'home_page_menu_args' );
 function home_page_menu_args( $args ) {
-	$args['show_home'] = true;
-	return $args;
+    $args['show_home'] = true;
+    return $args;
 }
 
 
@@ -145,52 +145,52 @@ function home_page_menu_args( $args ) {
 * @since 1.0
 */
 function wpex_get_social() {
-	
-	//define array of icons
-	$social_icons = array(
-			'addThis' => 'addThis',
-			'behance' => 'behance',
-			'blogger' => 'blogger',
-			'delicious' => 'delicious',
-			'deviantart' => 'deviantart',
-			'digg' => 'digg',
-			'dopplr' => 'dopplr',
-			'dribbble' => 'dribbble',
-			'evernote' => 'evernote',
-			'facebook' => 'facebook',
-			'flickr' => 'flickr',
-			'forrst' => 'forrst',
-			'gitHub' => 'gitHub',
-			'google' => 'google',
-			'grooveshark' => 'grooveshark',
-			'instagram' => 'instagram',
-			'lastfm' => 'lastfm',
-			'linkedin' => 'linkedin',
-			'myspace' => 'myspace',
-			'pinterest' => 'pinterest',
-			'paypal' => 'paypal',
-			'picasa' => 'picasa',
-			'pinterest' => 'pinterest',
-			'posterous' => 'posterous',
-			'reddit' => 'reddit',
-			'sharethis' => 'sharethis',
-			'skype' => 'skype',
-			'soundcloud' => 'soundcloud',
-			'spotify' => 'spotify',
-			'stumbleupon' => 'stumbleupon',
-			'tumblr' => 'tumblr',
-			'twitter' => 'twitter',
-			'viddler' => 'viddler',
-			'vimeo' => 'vimeo',
-			'virb' => 'virb',
-			'windows' => 'windows',
-			'wordPress' => 'wordPress',
-			'youtube' => 'youtube',
-			'zerply' => 'zerply',
-			'rss' => 'rss',
-			'mail' => 'mail' );
-	
-	//return array
-	return apply_filters('wpex_get_social', $social_icons);
+
+    //define array of icons
+    $social_icons = array(
+            'addThis' => 'addThis',
+            'behance' => 'behance',
+            'blogger' => 'blogger',
+            'delicious' => 'delicious',
+            'deviantart' => 'deviantart',
+            'digg' => 'digg',
+            'dopplr' => 'dopplr',
+            'dribbble' => 'dribbble',
+            'evernote' => 'evernote',
+            'facebook' => 'facebook',
+            'flickr' => 'flickr',
+            'forrst' => 'forrst',
+            'gitHub' => 'gitHub',
+            'google' => 'google',
+            'grooveshark' => 'grooveshark',
+            'instagram' => 'instagram',
+            'lastfm' => 'lastfm',
+            'linkedin' => 'linkedin',
+            'myspace' => 'myspace',
+            'pinterest' => 'pinterest',
+            'paypal' => 'paypal',
+            'picasa' => 'picasa',
+            'pinterest' => 'pinterest',
+            'posterous' => 'posterous',
+            'reddit' => 'reddit',
+            'sharethis' => 'sharethis',
+            'skype' => 'skype',
+            'soundcloud' => 'soundcloud',
+            'spotify' => 'spotify',
+            'stumbleupon' => 'stumbleupon',
+            'tumblr' => 'tumblr',
+            'twitter' => 'twitter',
+            'viddler' => 'viddler',
+            'vimeo' => 'vimeo',
+            'virb' => 'virb',
+            'windows' => 'windows',
+            'wordPress' => 'wordPress',
+            'youtube' => 'youtube',
+            'zerply' => 'zerply',
+            'rss' => 'rss',
+            'mail' => 'mail' );
+
+    //return array
+    return apply_filters('wpex_get_social', $social_icons);
 }
 ?>

@@ -15,7 +15,7 @@ get_header(); // Loads the header.php template
 if(have_posts()) : ?>
 
 <header id="page-heading">
-	<?php
+    <?php
     if(isset($_GET['author_name'])) :
     $curauth = get_userdatabylogin($author_name);
     else :
@@ -25,15 +25,15 @@ if(have_posts()) : ?>
     <h1><?php _e('Posts by','wpex'); ?>: <?php echo $curauth->display_name; ?></h1>
 </header><!-- /page-heading -->
 
-<div id="blog-wrap" class="blog-isotope clearfix">    
-	<?php
+<div id="blog-wrap" class="blog-isotope clearfix">
+    <?php
     while (have_posts()) : the_post();
-        get_template_part( 'content', get_post_format() );   
-    endwhile;        	
+        get_template_part( 'content', get_post_format() );
+    endwhile;
     ?>
 </div><!-- /post -->
 
 <?php
 wpex_pagination(); // Paginate your posts
-endif; 
+endif;
 get_footer(); //get template footer ?>

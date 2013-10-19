@@ -51,15 +51,15 @@
 }
 
 .jp-no-solution{
-	color: #777;
-	margin-bottom: 20px;
-	text-align: center;
+  color: #777;
+  margin-bottom: 20px;
+  text-align: center;
 }
 .jp-no-solution a{
-	color: #DD4B39;
+  color: #DD4B39;
 }
 .jp-no-solution a:hover{
-	color: #DD4B39;
+  color: #DD4B39;
 }
 
 /* CONTROLS
