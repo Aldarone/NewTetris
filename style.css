@@ -836,6 +836,8 @@ html[xmlns] .slides {
 ================================================== */
 
 /*header*/
+#post-header{ text-align: center; }
+
 #post-header h1{
     margin: 0;
     font-size: 2.000em;
